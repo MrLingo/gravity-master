@@ -6,7 +6,7 @@ public class GravityManipulator : MonoBehaviour
     public float jumpForce;
     public float gravityStrength;
     public float moveForce;
-    public Joystick joystick;
+    private Joystick joystick;
 
     private Rigidbody2D _rigidbody;
     private bool _gravityUp;
@@ -35,15 +35,17 @@ public class GravityManipulator : MonoBehaviour
     void Update()
     {
         // =================== JOYSTICK RULES ===================   
-        _joyStickPosition = joystick.Horizontal * 200f;
+        //_joyStickPosition = joystick.Horizontal * 200f;
+        /*
+        _joyStickPosition = 0f;
         
         if (_gravityDown){
             if(_joyStickPosition >= .2f){
-                _rigidbody.velocity = Vector3.right * moveForce;
+                //_rigidbody.velocity = Vector3.right * moveForce;
             }
             else if(_joyStickPosition <= -.2f)
             {
-                _rigidbody.velocity = Vector3.left * moveForce;
+                //_rigidbody.velocity = Vector3.left * moveForce;
             }
             
         }
@@ -79,7 +81,7 @@ public class GravityManipulator : MonoBehaviour
                 _rigidbody.velocity = Vector3.down * moveForce;
             }
         }
-      
+       */
         // ==============================================================
 
         // Jump settings
@@ -244,6 +246,7 @@ public class GravityManipulator : MonoBehaviour
 
 
     // ======= REFACTOR ======= 
+    /*
     public void MoveRightOnBtnClicked(){
         if (_gravityDown)
         {
@@ -274,7 +277,7 @@ public class GravityManipulator : MonoBehaviour
     }
 
     // ======= REFACTOR =======
-
+    */
     // ==================== Rotate on UI buttons clicked ====================
     public void RotateE()
     {

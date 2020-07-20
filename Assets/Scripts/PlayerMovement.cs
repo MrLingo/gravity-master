@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,9 +23,17 @@ public class PlayerMovement : MonoBehaviour
         //IsGamePaused();
 
         // Player movement.
-        transform.Translate(Input.GetAxis("Horizontal") * 200f * Time.deltaTime, 0f, 0f);
+        
+         // Keyboard control
+         transform.Translate(Input.GetAxis("Horizontal") * 200f * Time.deltaTime, 0f, 0f);
 
-        _horizontalMove = joystick.Horizontal * 200f;
+         // Get joystick movement
+         _horizontalMove = CrossPlatformInputManager.GetAxisRaw("Horizontal");
+
+         // Joystick control
+         transform.Translate(CrossPlatformInputManager.GetAxis("Horizontal") * 200f * Time.deltaTime, 0f, 0f);
+
+        //_horizontalMove = joystick.Horizontal * 200f;
 
         // Init walking/running_animation 
         if (Input.GetAxisRaw("Horizontal") == 0 && !Input.GetButtonDown("Jump"))
