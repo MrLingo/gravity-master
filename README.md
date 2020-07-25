@@ -9,5 +9,5 @@ The player needs to reach the end of the level (door with Exit sign on it), usin
 
 Currently the game contains only 5 levels, but may be extended in the future.
 
-# Build/Link to game
+# Build
 <a href="builds/GravityMasterAndroid.rar" download>Gravity Master</a>
