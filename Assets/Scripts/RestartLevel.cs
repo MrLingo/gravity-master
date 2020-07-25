@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class RestartLevel : MonoBehaviour
-{
+public class RestartLevel : MonoBehaviour{
     public float gravityStrength;
 
 
     public void restartLevel(){
-        //Application.LoadLevel(Application.loadedLevel);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         // Fixing increased gravity on restart.

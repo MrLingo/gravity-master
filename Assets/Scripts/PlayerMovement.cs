@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour{
     public GameObject pausePopUp;
     public Joystick joystick;
 
@@ -11,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator _anim;
     private float _horizontalMove = 0f;
 
+
     void Start(){
         _rigidbody = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
@@ -18,12 +18,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        //IsGamePaused();
-
-        // Player movement.
-        
+    void Update(){                         
          // Keyboard control
          transform.Translate(Input.GetAxis("Horizontal") * 200f * Time.deltaTime, 0f, 0f);
 
@@ -32,30 +27,24 @@ public class PlayerMovement : MonoBehaviour
 
          // Joystick control
          transform.Translate(CrossPlatformInputManager.GetAxis("Horizontal") * 200f * Time.deltaTime, 0f, 0f);
-
-        //_horizontalMove = joystick.Horizontal * 200f;
-
+        
         // Init walking/running_animation 
-        if (Input.GetAxisRaw("Horizontal") == 0 && !Input.GetButtonDown("Jump"))
-        {
+        if (Input.GetAxisRaw("Horizontal") == 0 && !Input.GetButtonDown("Jump")){
             _anim.speed = 0.5f;
             _anim.SetBool("isRunning", false);
         }
 
         // Jumping is taken care of in the GravityManipulator script, because it's highly correlated with gravity.
-
         // Flip player sprite and activate walking/running animation when right or left keys are triggered.
         _characterScale = transform.localScale;
         if (Input.GetAxis("Horizontal") < 0 || _horizontalMove <= -.2f) {
-
             // Increase animator speed when walking/running.
             _anim.speed = 1.0f;
             _anim.SetBool("isRunning", true);
             _characterScale.x = -35;
         }
 
-        if (Input.GetAxis("Horizontal") > 0 || _horizontalMove >= .2f)
-        {
+        if (Input.GetAxis("Horizontal") > 0 || _horizontalMove >= .2f){
             _anim.speed = 1.0f;
             _anim.SetBool("isRunning", true);
             _characterScale.x = 35;

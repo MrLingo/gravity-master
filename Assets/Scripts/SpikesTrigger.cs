@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 
-public class SpikesTrigger : MonoBehaviour
-{
-    public GameObject gameOverPopUp;
-    //public GameObject player;
+public class SpikesTrigger : MonoBehaviour{
+    public GameObject gameOverPopUp;    
 
 
     void Start(){
@@ -11,8 +9,8 @@ public class SpikesTrigger : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {   // Freeze level.
+    private void OnTriggerEnter2D(Collider2D collider){   
+	    // Freeze level.
         Time.timeScale = 0f;
         gameOverPopUp.gameObject.SetActive(true);
         Debug.Log("Game Over!");

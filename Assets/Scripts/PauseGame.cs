@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseGame : MonoBehaviour
-{
+public class PauseGame : MonoBehaviour{
     public GameObject pauseGamePopUp;
     public GameObject player;
     public static bool GameIsPaused = false;
@@ -23,14 +22,12 @@ public class PauseGame : MonoBehaviour
 
     void Update(){
         // On pause execute the following snippet.
-        if (Input.GetKeyDown(KeyCode.P))
-        {
+        if (Input.GetKeyDown(KeyCode.P)){
             Debug.Log("Game paused");
             // Freeze level.
             Time.timeScale = 0f;
             pauseGamePopUp.gameObject.SetActive(true);
         }
-
     }
 
 
